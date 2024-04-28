@@ -7,12 +7,12 @@ CREATE TABLE orderItem (
     OrderID INT NOT NULL,
     EmployeeID INT NOT NULL,
     DishID INT NOT NULL,
-    Options VARCHAR(255),
+    Options VARCHAR(255) NULL,
     CONSTRAINT table_PKs PRIMARY KEY(OrderID, EmployeeID, DishID),
     CONSTRAINT Order_FK FOREIGN KEY(OrderID)
         REFERENCES _order(OrderID),
-    CONSTRAINT Emp_FK FOREIGN KEY(EmployeeID)
+    CONSTRAINT Chef_FK FOREIGN KEY(EmployeeID)
         REFERENCES employee(EmployeeID),
-    CONSTRAINT Order_FK FOREIGN KEY(DishID)
+    CONSTRAINT Dish_FK FOREIGN KEY(DishID)
         REFERENCES dish(DishID)
-;)
+);

@@ -4,9 +4,10 @@ use ristorante;
 DROP TABLE IF EXISTS _order;
 
 CREATE TABLE _order (
-    OrderID INT NOT NULL,
+    OrderID INT(9) NOT NULL AUTO_INCREMENT,
     EmployeeID INT NOT NULL,
     TableNumber INT NOT NULL,
+    PartySize INT NOT NULL,
     OrderDate Date NOT NULL,
     CONSTRAINT order_PK PRIMARY KEY(OrderID),
     CONSTRAINT Host_FK FOREIGN KEY(EmployeeID)
