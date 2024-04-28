@@ -1,7 +1,3 @@
--- Active: 1713892331730@@127.0.0.1@3306@ristorante
--- Active: 1713892331730@@127.0.0.1@3306@ristorante
-use ristorante;
-
 CREATE TABLE employee (
     EmployeeID INT NOT NULL,
     Name VARCHAR(255) NOT NULL,
@@ -58,7 +54,7 @@ CREATE TABLE orderItem (
 );
 
 CREATE TABLE card (
-    CardNumber INT(16) NOT NULL,
+    CardNumber BIGINT(16) NOT NULL,
     CSC VARCHAR(4) NOT NULL,
     CardholderName VARCHAR(255) NOT NULL,
     BillingAddress VARCHAR(255) NOT NULL,
@@ -67,11 +63,11 @@ CREATE TABLE card (
 );
 
 CREATE TABLE _check (
-    CheckNumber INT NOT NULL,
+    CheckNumber INT NOT NULL AUTO_INCREMENT,
     OrderID INT NOT NULL,
     PaymentMethod CHAR(4) NOT NULL,
     Amount DECIMAL NOT NULL,
-    CardNumber INT(16) NULL,
+    CardNumber BIGINT(16) NULL,
     CONSTRAINT check_PK PRIMARY KEY(CheckNumber),
     CONSTRAINT orderCheck_FK FOREIGN KEY(OrderID)
         REFERENCES _order(OrderID),
