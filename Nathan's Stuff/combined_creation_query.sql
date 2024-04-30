@@ -80,6 +80,8 @@ CREATE TABLE _check (
     CONSTRAINT check_PK PRIMARY KEY(CheckNumber),
     CONSTRAINT orderCheck_FK FOREIGN KEY(OrderID)
         REFERENCES _order(OrderID),
+    CONSTRAINT card_FK FOREIGN KEY(CardNumber)
+        REFERENCES card(CardNumber),
     CONSTRAINT method_CHK CHECK(PaymentMethod IN ('cash', 'card'))
 );
 
@@ -265,3 +267,4 @@ BEGIN
 END$$
 
 DELIMITER ;
+
